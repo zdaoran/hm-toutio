@@ -18,7 +18,7 @@ export default {}
   background: url("../../assets/images/login_bg.jpg") no-repeat center / cover;
   .box-card {
     position: absolute;
-    top: 55%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 400px;
