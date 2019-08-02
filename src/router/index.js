@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Login from '@/views/router'
+import Login from '@/views/login'
 Vue.use(VueRouter)
 
 const router = new VueRouter({
@@ -8,7 +8,13 @@ const router = new VueRouter({
     name: 'login',
     path: '/login',
     component: Login
-  }]
+  },
+  {
+    path: '/',
+    name: 'home',
+    redirect: '/welcome'
+  }
+  ]
 })
 
 export default router
