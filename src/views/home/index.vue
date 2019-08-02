@@ -119,7 +119,7 @@ export default {
     }
     .logo {
       height: 60px;
-      background: url(../../assets/images/logo_admin.png) no-repeat center /
+      background: #002244 url(../../assets/images/logo_admin.png) no-repeat center /
         130px auto;
     }
     .small {
