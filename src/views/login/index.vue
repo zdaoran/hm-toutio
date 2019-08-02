@@ -70,7 +70,7 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less" scoped >
 .container {
   position: absolute;
   width: 100%;
