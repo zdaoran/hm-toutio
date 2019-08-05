@@ -115,7 +115,7 @@ export default {
       vertical-align: middle;
     }
     .el-icon-s-fold {
-      font-size: 24px;
+      font-size: 26px;
       padding-right: 10px;
     }
     .el-dropdown {
