@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import store from '@/store'
 export default {
   data () {
     const checkPhone = (rule, value, callback) => {
@@ -32,7 +33,7 @@ export default {
     }
     return {
       loginForm: {
-        mobile: '13911111111',
+        mobile: '15266472849',
         code: '246810'
       },
       rules: {
@@ -49,20 +50,30 @@ export default {
   },
   methods: {
     login () {
-      this.$refs.loginForm.validate(valid => {
+      this.$refs.loginForm.validate(async valid => {
         if (valid) {
-          this.$http
-            .post(
-              'http://ttapi.research.itcast.cn/mp/v1_0/authorizations',
-              this.loginForm
-            )
-            .then(res => {
-              this.$router.push('/')
-            })
-            .catch(error => {
-              console.log(error)
-              this.$message.error('手机号或验证码输入有误')
-            })
+          // this.$http
+          //   .post(
+          //     'http://ttapi.research.itcast.cn/mp/v1_0/authorizations',
+          //     this.loginForm
+          //   )
+          //   .then(res => {
+          //     store.setUser(res.data.data)
+          //     this.$router.push('/')
+          //   })
+          //   .catch(error => {
+          //     console.log(error)
+          //     this.$message.error('手机号或验证码输入有误')
+          //   })
+          try {
+            const {
+              data: { data }
+            } = await this.$http.post('authorizations', this.loginForm)
+            store.setUser(data)
+            this.$router.push('/')
+          } catch (e) {
+            this.$message.error('手机号或验证码输入有误')
+          }
         }
       })
     }
