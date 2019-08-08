@@ -15,14 +15,7 @@ return JSONBig.parse(data)<template>
           </el-radio-group>
         </el-form-item>
         <el-form-item label-width='80px' label='频道：'>
-          <el-select v-model='formData.channel_id' placeholder='请选择' clearable>
-            <el-option
-              v-for='item in checkOptions'
-              :key='item.id'
-              :label='item.name'
-              :value='item.id'
-            ></el-option>
-          </el-select>
+          <my-channel v-model="formData.channel_id"></my-channel>
         </el-form-item>
         <el-form-item label-width='80px' label='日期：'>
           <el-date-picker
@@ -96,8 +89,6 @@ export default {
         page: 1,
         per_page: 20
       },
-      // 下拉框选项
-      checkOptions: [],
       // 日期数据
       dateArr: [],
       // 文章列表
@@ -108,7 +99,6 @@ export default {
   },
   created () {
     this.getArticleData()
-    this.getOptions()
   },
   methods: {
     edit (id) {
@@ -138,12 +128,6 @@ export default {
       this.articles = data.results
       this.total = data.total_count
     },
-    async getOptions () {
-      const {
-        data: { data }
-      } = await this.$http.get('channels')
-      this.checkOptions = data.channels
-    },
     changeDate (dateArr) {
       if (dateArr) {
         this.formData.begin_pubdate = this.dateArr[0]
@@ -156,13 +140,6 @@ export default {
     changePager (newPage) {
       this.formData.page = newPage
       this.getArticleData()
-    }
-  },
-  watch: {
-    'formData.channel_id': function (newVal, oldVal) {
-      if (newVal === '') {
-        this.formData.channel_id = null
-      }
     }
   }
 }
