@@ -2,3 +2,81 @@ body {
   margin: 0;
   padding: 0;
 }
+.avatar-uploader .el-upload {
+  border: 1px dashed #d9d9d9;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.avatar-uploader .el-upload:hover {
+  border-color: #409EFF;
+}
+.avatar-uploader-icon {
+  font-size: 28px;
+  color: #8c939d;
+  width: 178px;
+  height: 178px;
+  line-height: 178px;
+  text-align: center;
+}
+.avatar {
+  width: 178px;
+  height: 178px;
+  display: block;
+}
+.avatar-uploader {
+  text-align: center;
+}
+.publish .ql-container.ql-snow {
+  height: 300px;
+}
+.publish .ql-toolbar.ql-snow {
+  padding: 0 10px;
+}
+.publish .el-dialog__body {
+  padding-bottom: 0;
+}
+.publish .el-dialog__footer {
+  text-align: center;
+}
+.my-upload {
+  display: inline-block;
+  margin-right: 20px;
+}
+.my-upload .upload {
+  width: 150px;
+  height: 150px;
+  border: 1px dashed #ddd;
+}
+.my-upload .upload img {
+  width: 100%;
+  height: 100%;
+}
+.my-upload .img-item {
+  display: inline-block;
+  margin-right: 25px;
+  list-style: none;
+  width: 150px;
+  height: 120px;
+  border: 1px dashed #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+.my-upload .img-item.seclected::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2) url(../assets/images/selected.png) no-repeat center / 50px 50px;
+}
+.my-upload .img-item:nth-child(4n) {
+  margin-right: 0;
+}
+.my-upload .img-item img {
+  height: 100%;
+  width: 100%;
+}

@@ -60,6 +60,7 @@ import store from '@/store'
 export default {
   data () {
     return {
+      props: [],
       imagesList: {
         collect: false,
         page: 1,
