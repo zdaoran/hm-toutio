@@ -2,7 +2,9 @@ const KEY = 'toutiao'
 
 export default {
   setUser (userInfo) {
-    window.sessionStorage.setItem(KEY, JSON.stringify(userInfo))
+    let localUserInfo = this.getUser()
+    const newUserInfo = { ...localUserInfo, ...userInfo }
+    window.sessionStorage.setItem(KEY, JSON.stringify(newUserInfo))
   },
   getUser () {
     return JSON.parse(window.sessionStorage.getItem(KEY) || '{}')
